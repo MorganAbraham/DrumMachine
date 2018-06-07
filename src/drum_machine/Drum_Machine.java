@@ -29,9 +29,9 @@ public class Drum_Machine {
     public static void playsound(int i){
         try{
                 Clip clip = AudioSystem.getClip();
-                //File f = new File("C:\\Users\\Morgan\\Desktop\\hihat.wav");
-                File f = GetFile(i);
-                AudioInputStream inputStream = AudioSystem.getAudioInputStream(f);
+                //File soundFile = new File("C:\\Users\\Morgan\\Desktop\\hihat.wav");
+                File soundFile = getSoundFile(i);
+                AudioInputStream inputStream = AudioSystem.getAudioInputStream(soundFile);
                 clip.open(inputStream);
                 clip.start(); 
             }
@@ -39,8 +39,8 @@ public class Drum_Machine {
             //JOptionPane.showMessageDialog(null,e.getMessage(),"Welcome to the drum machine!",JOptionPane.INFORMATION_MESSAGE);
         }
     }
-    public static File GetFile(int i){
-        String padSound = "C:\\Users\\Morgan\\Documents\\NetBeansProjects\\Drum_Machine\\Default Sounds\\";
+    public static File getSoundFile(int i){
+        String padSound = System.getProperty("user.dir") + "\\Default Sounds\\";
         switch(i){
             case 1:
                 padSound = padSound + "kick1.wav";
