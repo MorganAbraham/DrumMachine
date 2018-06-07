@@ -25,13 +25,13 @@ public class AL extends frmMPC implements ActionListener{
         JButton pd = (JButton) ae.getSource();
         Drum_Machine.pad = pd;
         ButtonFlash bf = new ButtonFlash();
-        Thread trd = new Thread(bf);
-        trd.start();
+        Thread thread = new Thread(bf);
+        thread.start();
         String pad = ae.getActionCommand();
         pad = pad.substring(pad.length() - 1);
-        //JOptionPane.showMessageDialog(null,ae.getSource());
-        int snd = Integer.parseInt(pad);
-        Drum_Machine.playsound(snd);
+
+        int padNumber = Integer.parseInt(pad);
+        Drum_Machine.playsound(padNumber - 1);
     }
     
 }

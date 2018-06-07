@@ -40,41 +40,17 @@ public class Drum_Machine {
         }
     }
     public static File getSoundFile(int i){
-        String padSound = System.getProperty("user.dir") + "\\Default Sounds\\";
-        switch(i){
-            case 1:
-                padSound = padSound + "kick1.wav";
-                break;
-            case 2:
-                padSound = padSound + "snare1.wav";
-                break;
-            case 3:
-                padSound = padSound + "chihat.wav";
-                break;
-            case 4:
-                padSound = padSound + "shaker1.wav";
-                break;
-            case 5:
-                padSound = padSound + "shaker2.wav";
-                break;
-            case 6:
-                padSound = padSound + "bongo1.wav";
-                break;
-            case 7:
-                padSound = padSound + "huh.wav";
-                break;
-            case 8:
-                padSound = padSound + "stab1.wav";
-                break;
-            case 9:
-                //padSound = padSound + "";
-                padSound = null;
-                break;
-            default:
-                    padSound = null;
+        String soundPath = System.getProperty("user.dir") + "\\Default Sounds\\";
+        String[] defaultSounds = new String[]{"kick1.wav", "snare1.wav", "chihat.wav",
+            "shaker1.wav","shaker1.wav","shaker2.wav","bongo1.wav","huh.wav","stab1.wav"};
+        if(i > -1 && i < defaultSounds.length){
+            soundPath += defaultSounds[i];
+        }else{
+            soundPath = null;
         }
-        if (padSound != null){
-            return new File(padSound);
+        
+        if (soundPath != null){
+            return new File(soundPath);
         }
         return null;
     }
