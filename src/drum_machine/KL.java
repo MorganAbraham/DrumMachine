@@ -25,10 +25,7 @@ public class KL extends frmMPC implements KeyListener{
        if(currentKey >= '1'  && currentKey <= '9'){
             int keyNumber = Character.getNumericValue(currentKey);
             keyNumber -= 1;
-            JButton[] pads = new JButton[]{jPad1, jPad2, jPad3, jPad4,
-                jPad5, jPad6, jPad7, jPad8, jPad9};
-            JButton pad = pads[keyNumber];
-           
+            
             ButtonFlash bf = new ButtonFlash();
             Thread thread = new Thread(bf);
             thread.start();
